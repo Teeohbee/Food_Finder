@@ -1,8 +1,8 @@
-angular.module('jsCodingTest', [ 'cpLib'
+angular.module('lunchFinder', [ 'cpLib'
       // Add module dependencies here.
 ]);
 
-angular.module('jsCodingTest').controller('GiveTheGovernmentABurrito', function(PackagesFactory, $scope, $http) {
+angular.module('lunchFinder').controller('GiveTheGovernmentABurrito', function(PackagesFactory, $scope, $http) {
 
   PackagesFactory.searchPackages('Burrito','SW1A 0AA').then(function(results) {
     $scope.searchData = results.data;
