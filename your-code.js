@@ -1,8 +1,14 @@
-angular.module('jsCodingTest', [
-    // Add module dependencies here.
+angular.module('jsCodingTest', [ 'cpLib'
+      // Add module dependencies here.
 ]);
 
-angular.module('jsCodingTest').controller('GiveTheGovernmentABurrito', function() {
+angular.module('jsCodingTest').controller('GiveTheGovernmentABurrito', function(PackagesFactory, $scope, $http) {
+
+  PackagesFactory.searchPackages('Burrito','SW1A 0AA').then(function(results) {
+    $scope.searchData = results.data;
+    console.log($scope.searchData);
+  });
+  // console.log($scope.results);
     // Your JavaScript goes here.
     // Your code should use our JS library's `PackagesFactory.searchPackages` method to search
     // for burritos that can be delivered to the Houses of Parliament in London.
