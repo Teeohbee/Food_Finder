@@ -5,12 +5,11 @@ angular.module('lunchFinder', ['cpLib'
 angular.module('lunchFinder').controller('GiveTheGovernmentABurrito', function(PackagesFactory, $scope, $http) {
 
   $scope.doSearch = function() {
-    if ($scope.searchTerm === "" && $scope.searchPostCode === "") {
+    if ($scope.searchTerm === "") {
       $scope.searchData = "";
     } else {
       PackagesFactory.searchPackages($scope.searchTerm, $scope.searchPostCode).then(function(results) {
         $scope.searchData = results.data;
-        console.log($scope.searchData);
       });
     };
   };
