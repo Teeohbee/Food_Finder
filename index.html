@@ -2,22 +2,42 @@
 
 <head>
   <title>Lunch Finder</title>
+  <link rel="stylesheet" type="text/css" href="lib/Semantic-UI-CSS-2.1.6/semantic.min.css">
+  <script src="lib/Semantic-UI-CSS-2.1.6/semantic.min.js"></script>
 </head>
 
 <body ng-app="lunchFinder">
-    <main ng-controller="GiveTheGovernmentABurrito">
-        Write your HTML here.
-        <ul ng-repeat="package in searchData.packages">
-        </li>{{ package.name }}</li>
-        </ul>
-    </main>
+  <main ng-controller="GiveTheGovernmentABurrito">
+    <div class="ui blue inverted menu">
+      <a class="active item">Lunch Finder</a>
+    </div>
+    <div class="ui big input">
+      <input type="text" ng-model="searchTerm" ng-change="doSearch()" name="searchTerm" placeholder="Please search for food">
+    </div>
+      <div class="ui big input">
+      <input type="text" ng-model="searchPostCode" ng-change="doSearch()" name="searchTerm" placeholder="Type your postcode">
+    </div>
 
-    <script src="lib/angular.min.js"></script>
-    <script src="lib-integration.js"></script>
-    <script src="node_modules/citypantry-js-lib/dist/lib-es5-with-browser-polyfill.js"></script>
-    <!-- <script src="node_modules/citypantry-js-lib/dist/lib-es5-without-browser-polyfill.js"></script> -->
-    <!-- <script src="node_modules/citypantry-js-lib/dist/lib-es6.js"></script> -->
-    <script src="your-code.js"></script>
+    <div class="ui four stackable cards">
+      <a class="yellow card" ng-repeat="package in searchData.packages">
+        <div class="image circular">
+          <img class="ui image" src="{{ package.images[0].medium}}">
+        </div>
+        <div class="content">
+          <div class="header">{{ package.name }}</div>
+          <div class="meta">
+            <span class="vendor">{{ package.vendor.name }}</span>
+            <span class="right floated cuisine">{{ package.cuisineType.name }}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <script src="lib/angular.min.js"></script>
+  <script src="lib-integration.js"></script>
+  <script src="node_modules/citypantry-js-lib/dist/lib-es5-with-browser-polyfill.js"></script>
+  <script src="your-code.js"></script>
 </body>
 
 </html>
