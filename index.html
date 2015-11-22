@@ -8,19 +8,28 @@
 
 <body ng-app="lunchFinder">
   <main ng-controller="GiveTheGovernmentABurrito">
-    <div class="ui blue inverted menu">
-      <a class="active item">Lunch Finder</a>
-    </div>
-    <div class="ui big input">
-      <input type="text" ng-model="searchTerm" ng-change="doSearch()" name="searchTerm" placeholder="Please search for food">
-    </div>
-      <div class="ui big input">
-      <input type="text" ng-model="searchPostCode" ng-change="doSearch()" name="searchTerm" placeholder="Type your postcode">
+    <div class="ui green inverted menu">
+      <div class="header item">
+        <i class="food icon"></i> Lunch Finder
+      </div>
+
+      <div class="item">
+        <div class="ui large icon input">
+          <input type="text" ng-model="searchTerm" ng-change="doSearch()" name="searchTerm" placeholder="Please search for food">
+          <i class="search icon"></i>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui large icon input">
+          <input type="text" ng-model="searchPostCode" ng-change="doSearch()" name="searchTerm" placeholder="Type your postcode">
+          <i class="search icon"></i>
+        </div>
+      </div>
     </div>
 
     <div class="ui four stackable cards">
       <a class="yellow card" ng-repeat="package in searchData.packages">
-        <div class="image circular">
+        <div class="image">
           <img class="ui image" src="{{ package.images[0].medium}}">
         </div>
         <div class="content">
