@@ -17,5 +17,4 @@ describe('Lunch Finder', function() {
     expect(results.get(0).getText()).toContain("Beni's Breakfast Burrito");
   });
 
-
 });
